@@ -1,0 +1,490 @@
+;==========================================================
+; GSD-File  for RF160C                           SIEMENS AG
+; MLFB    : 6GT2 002-0EF00
+;
+; Version : V1.00.00
+;
+; Date    : 05.05.2010 
+; File    : "SIEM818A.GSD"
+;==========================================================
+; 
+;
+;*********************************************************************
+;**                General DP Key Words                             **
+;*********************************************************************
+
+#Profibus_DP
+
+PrmText=7
+   ;Text(0x01)= "FB 45 / FC 45"
+   Text(0x02)= "FC 44"
+   Text(0x06)= "Compatibilita FC 44" 
+   ;Text(0x04)= "FB 55 / FC 55"
+   ;Text(0x05)= "FB 56 / FC 56"
+   ;Text(0x03)= "Profilo normalizzato RFID"
+   Text(0x07)= "Comando automatico (ACMD)"    
+EndPrmText
+
+PrmText=8
+   Text(0x01)= "MOBY I/E"
+   ;Text(0x81)= "Gestore file MOBY I"
+   Text(0x05)= "MOBY U/D RF300/600"
+   ;Text(0x85)= "Gestore file MOBY U"
+   ;Text(0x95)= "Gestore file RF300"
+EndPrmText
+
+PrmText=9
+   Text(0x01)= " 19,2 kBaud"
+   Text(0x03)= " 57,6 kBaud"
+   Text(0x04)= "115,2 kBaud"      
+EndPrmText
+
+PrmText=10
+   Text(0x01)= "Nessuno"
+   Text(0x02)= "Errore hardware"
+   Text(0x03)= "Errore hard/esec. prio bassa"
+   Text(0x04)= "Errore hard/esec. prio alta"
+EndPrmText
+
+PrmText=12
+   Text(0x00)= "Nessuno"
+   Text(0x01)= "Canale 1"
+   Text(0x02)= "Canale 2"   
+EndPrmText
+
+PrmText=19
+   Text(0x00)= "OFF"
+   Text(0x01)= "ON"
+   Text(0x02)= "Tag controllore"   
+EndPrmText
+
+PrmText=20
+   Text(0x00)= "OFF"
+   Text(0x01)= "ON"    
+EndPrmText
+
+PrmText=46
+   Text(0x00)= "OFF"
+   Text(0x01)= "ON"    
+EndPrmText
+
+ExtUserPrmData=7 "Modalita USER"
+   Unsigned8 0x02 0x00-0x99
+   Prm_Text_Ref=7
+EndExtUserPrmData
+
+ExtUserPrmData=8 "Modalita MOBY"
+   Unsigned8 0x05 0x00-0x99
+   Prm_Text_Ref=8
+EndExtUserPrmData
+
+ExtUserPrmData=9 "Lettore velocita di trasmissione"
+   Unsigned8 0x04 0x00-0x99
+   Prm_Text_Ref=9
+EndExtUserPrmData
+
+ExtUserPrmData=10 "Diagnostica"
+   Unsigned8 0x01 0x00-0x99
+   Prm_Text_Ref=10
+EndExtUserPrmData
+
+ExtUserPrmData=12 "Soppressione LED all avvio"
+   Unsigned8 0x00 0x00-0x99
+   Prm_Text_Ref=12
+EndExtUserPrmData
+
+ExtUserPrmData=13 "Ritardo ciclo DP"
+   Unsigned8 0x00 0x00-0x0A  
+EndExtUserPrmData
+
+ExtUserPrmData=19 "RP_1 MDS_control"
+   Unsigned8 0x01 0x00-0x50
+   Prm_Text_Ref=19
+EndExtUserPrmData
+
+ExtUserPrmData=20 "RP_1 ECC_mode"
+   Unsigned8 0x00 0x00-0x99
+   Prm_Text_Ref=20
+EndExtUserPrmData
+
+ExtUserPrmData=21 "RP_1 scanning_time"
+   Unsigned8 0x00 0x00-0xFF
+EndExtUserPrmData
+
+ExtUserPrmData=22 "RP_1 option_1"
+   Unsigned8 0x02 0x00-0xFF
+EndExtUserPrmData
+
+ExtUserPrmData=23 "RP_1 distance_limiting"
+   Unsigned8 0x0F 0x00-0xFF
+EndExtUserPrmData
+
+ExtUserPrmData=24 "RP_1 multitag"
+   Unsigned16 0x01 0x00-0xFF
+EndExtUserPrmData
+
+ExtUserPrmData=26 "RP_1 field_ON_control"
+   Unsigned8 0x00 0x00-0xFF
+EndExtUserPrmData
+
+ExtUserPrmData=27 "RP_1 field_ON_time"
+   Unsigned8 0x00 0x00-0xFF
+EndExtUserPrmData
+
+ExtUserPrmData=32 "RP_2 MDS_control"
+   Unsigned8 0x01 0x00-0x50
+   Prm_Text_Ref=19
+EndExtUserPrmData
+
+ExtUserPrmData=33 "RP_2 ECC_mode"
+   Unsigned8 0x00 0x00-0x99
+   Prm_Text_Ref=20
+EndExtUserPrmData
+
+ExtUserPrmData=34 "RP_2 scanning_time"
+   Unsigned8 0x00 0x00-0xFF
+EndExtUserPrmData
+
+ExtUserPrmData=35 "RP_2 option_1"
+   Unsigned8 0x02 0x00-0xFF
+EndExtUserPrmData
+
+ExtUserPrmData=36 "RP_2 distance_limiting"
+   Unsigned8 0x0F 0x00-0xFF
+EndExtUserPrmData
+
+ExtUserPrmData=37 "RP_2 multitag"
+   Unsigned16 0x01 0x00-0xFF
+EndExtUserPrmData
+
+ExtUserPrmData=39 "RP_2 field_ON_control"
+   Unsigned8 0x00 0x00-0xFF
+EndExtUserPrmData
+
+ExtUserPrmData=40 "RP_2 field_ON_time"
+   Unsigned8 0x00 0x00-0xFF
+EndExtUserPrmData
+
+ExtUserPrmData=46 "ACMD_1 read trigger"
+Bit(0) 0 0-1
+Prm_Text_Ref=46
+EndExtUserPrmData
+
+ExtUserPrmData=48 "ACMD_1 length"
+   Unsigned8 0x00 0x00-0xFF
+EndExtUserPrmData
+
+ExtUserPrmData=49 "ACMD_1 command"
+   Unsigned8 0x00 0x00-0xFF
+EndExtUserPrmData
+
+ExtUserPrmData=51 "ACMD_1 param 1"
+   Unsigned8 0x00 0x00-0xFF
+EndExtUserPrmData
+
+ExtUserPrmData=52 "ACMD_1 param 2"
+   Unsigned8 0x00 0x00-0xFF
+EndExtUserPrmData
+
+ExtUserPrmData=53 "ACMD_1 param 3"
+   Unsigned8 0x00 0x00-0xFF
+EndExtUserPrmData
+
+ExtUserPrmData=54 "ACMD_1 param 4"
+   Unsigned8 0x00 0x00-0xFF
+EndExtUserPrmData
+
+ExtUserPrmData=55 "ACMD_1 param 5"
+   Unsigned8 0x00 0x00-0xFF
+EndExtUserPrmData
+
+ExtUserPrmData=57 "ACMD_2 read trigger"
+Bit(0) 0 0-1
+Prm_Text_Ref=46
+EndExtUserPrmData
+
+ExtUserPrmData=59 "ACMD_2 length"
+   Unsigned8 0x00 0x00-0xFF
+EndExtUserPrmData
+
+ExtUserPrmData=60 "ACMD_2 command"
+   Unsigned8 0x00 0x00-0xFF
+EndExtUserPrmData
+
+ExtUserPrmData=62 "ACMD_2 param 1"
+   Unsigned8 0x00 0x00-0xFF
+EndExtUserPrmData
+
+ExtUserPrmData=63 "ACMD_2 param 2"
+   Unsigned8 0x00 0x00-0xFF
+EndExtUserPrmData
+
+ExtUserPrmData=64 "ACMD_2 param 3"
+   Unsigned8 0x00 0x00-0xFF
+EndExtUserPrmData
+
+ExtUserPrmData=65 "ACMD_2 param 4"
+   Unsigned8 0x00 0x00-0xFF
+EndExtUserPrmData
+
+ExtUserPrmData=66 "ACMD_2 param 5"
+   Unsigned8 0x00 0x00-0xFF
+EndExtUserPrmData
+
+
+GSD_Revision = 5
+Vendor_Name = "Siemens AG"
+Model_Name = "RF160C"
+Revision = "1.0"
+Ident_Number = 0x818A
+Protocol_Ident = 0
+Station_Type = 0
+FMS_supp = 0
+Hardware_Release = "1.0"
+Software_Release = "V1.0"
+9.6_supp = 1
+19.2_supp = 1
+45.45_supp = 1
+93.75_supp = 1
+187.5_supp = 1
+500_supp = 1
+1.5M_supp = 1
+3M_supp = 1
+6M_supp = 1
+12M_supp = 1
+MaxTsdr_9.6 = 15
+MaxTsdr_19.2 = 15
+MaxTsdr_45.45 = 15  
+MaxTsdr_93.75 = 15
+MaxTsdr_187.5 = 15
+MaxTsdr_500 = 15
+MaxTsdr_1.5M = 25
+MaxTsdr_3M = 50
+MaxTsdr_6M = 100
+MaxTsdr_12M = 200
+Repeater_Ctrl_Sig = 0
+24V_Pins = 0
+Implementation_Type="DPC31"
+Bitmap_Device="RF1601N"
+Bitmap_Diag= "RF1601D"
+Bitmap_SF="RF1601S"
+
+;********************************************************************
+;**       Basic DP-Slave related Key Words                         **
+;********************************************************************
+OrderNumber="6GT2002-0EF00"   ;Siemens spezific Keyword
+Info_Text="Modulo di interfaccia RF160C in IP67 per il collegamento di 2 stazioni di scrittura/lettura mediante PROFIBUS-DP"
+
+Freeze_Mode_supp = 1 
+Sync_Mode_supp = 1 
+Auto_Baud_supp = 1
+Set_Slave_Add_supp = 0
+Min_Slave_Intervall = 1
+
+Modular_Station = 1
+Max_Module = 1   
+Max_Input_Len = 0xF4
+Max_Output_Len = 0xF4
+Max_Data_Len = 0x1E8
+
+Max_User_Prm_Data_Len = 70
+;Ext_Module_Prm_Data_Len = 69
+Ext_User_Prm_Data_Const(0)=0x80,0x00,0x00,0x42,0x81,0x00,0x00,0x02,0x05,0x04,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00   
+Ext_User_Prm_Data_Ref(7) =7
+Ext_User_Prm_Data_Ref(8) =8
+Ext_User_Prm_Data_Ref(9) =9
+Ext_User_Prm_Data_Ref(10)=10
+
+Ext_User_Prm_Data_Ref(12)=12
+Ext_User_Prm_Data_Ref(13)=13
+
+Ext_User_Prm_Data_Ref(19)=19  ;MDS Control 1
+Ext_User_Prm_Data_Ref(20)=20
+Ext_User_Prm_Data_Ref(21)=21
+Ext_User_Prm_Data_Ref(22)=22
+Ext_User_Prm_Data_Ref(23)=23
+Ext_User_Prm_Data_Ref(24)=24  ;INT16
+
+Ext_User_Prm_Data_Ref(26)=26
+Ext_User_Prm_Data_Ref(27)=27  ;ftim 1
+
+Ext_User_Prm_Data_Ref(32)=32  ;MDS Control 2
+Ext_User_Prm_Data_Ref(33)=33
+Ext_User_Prm_Data_Ref(34)=34
+Ext_User_Prm_Data_Ref(35)=35
+Ext_User_Prm_Data_Ref(36)=36
+Ext_User_Prm_Data_Ref(37)=37  ;INT16
+
+Ext_User_Prm_Data_Ref(39)=39
+Ext_User_Prm_Data_Ref(40)=40  ;ftim 2
+
+
+Ext_User_Prm_Data_Ref(46)=46 
+Ext_User_Prm_Data_Ref(48)=48  ;ab 1
+Ext_User_Prm_Data_Ref(49)=49
+Ext_User_Prm_Data_Ref(51)=51
+Ext_User_Prm_Data_Ref(52)=52
+Ext_User_Prm_Data_Ref(53)=53
+Ext_User_Prm_Data_Ref(54)=54
+Ext_User_Prm_Data_Ref(55)=55
+
+Ext_User_Prm_Data_Ref(57)=57 
+Ext_User_Prm_Data_Ref(59)=59  ;ab 2
+Ext_User_Prm_Data_Ref(60)=60
+Ext_User_Prm_Data_Ref(62)=62
+Ext_User_Prm_Data_Ref(63)=63
+Ext_User_Prm_Data_Ref(64)=64
+Ext_User_Prm_Data_Ref(65)=65
+Ext_User_Prm_Data_Ref(66)=66
+
+
+Unit_Diag_Area=96-103
+Value(0x0F)="RF160C in funzionamento"
+Value(0x03)="Errore di collegamento Reader"
+Value(0x11)="Cortocircuito nella Reader"
+Value(0x14)="Errore grave"
+Value(0x20)="Errore hardware"
+Value(0x21)="Errore caricatore"
+Value(0x81)="Download attivo"
+Value(0x82)="Fine download"
+Value(0x83)="Errore download"
+Unit_Diag_Area_End
+
+Diag_Update_Delay = 0
+Max_Diag_Data_Len = 24
+
+; Fuer DP-V1 Betrieb
+;Module = "Parola: 2 IN/OUT DP-V1  " 0x71
+;10
+;EndModule
+
+; Fuer DP-V0
+
+Module = "Byte: 16 IN/OUT" 0xBF 
+13                                                        
+EndModule
+Module = "Byte: 20 IN/OUT" 0xB9,0xB9
+14                                                          
+EndModule
+Module = "Byte: 24 IN/OUT" 0xBB,0xBB  
+15                                                        
+EndModule
+Module = "Byte: 28 IN/OUT" 0xBD,0xBD 
+16                                                         
+EndModule
+Module = "Byte: 32 IN/OUT" 0xBF,0xBF
+17                                                          
+EndModule
+Module = "Byte: 64 IN/OUT" 0xC0,0x9F,0x9F,0xC0,0x9F,0x9F
+18
+EndModule
+Module = "Byte: 122 IN/OUT"0xC0,0xBC,0xBC,0xC0,0xBC,0xBC
+19
+EndModule
+
+
+Module = "Parole: 8 IN/OUT" 0xF3,0xF3
+25                                                          
+EndModule
+Module = "Parole: 10 IN/OUT" 0xF4,0xF4 
+26                                                         
+EndModule
+Module = "Parole: 12 IN/OUT" 0xF5,0xF5 
+27                                                         
+EndModule
+Module = "Parole: 14 IN/OUT" 0xF6,0xF6
+28                                                          
+EndModule
+Module = "Parole: 16 IN/OUT" 0xF7,0xF7 
+29                                                       
+EndModule
+Module = "Parole: 32 IN/OUT" 0xFF,0xFF
+30
+EndModule
+Module = "Parole: 64 IN/OUT" 0xC0,0xDF,0xDF,0xC0,0xDF,0xDF
+31
+EndModule
+Module = "Parole: 104 IN/OUT" 0xC0,0xF3,0xF3,0xC0,0xF3,0xF3
+32
+EndModule
+Module = "Parole: 122 IN/OUT" 0xC0,0xFC,0xFC,0xC0,0xFC,0xFC
+33
+EndModule
+
+
+Module = "Parole: ACMD 12 IN 2 OUT" 0xE1,0xDB
+35                                                          
+EndModule
+Module = "Parole: ACMD 24 IN 2 OUT" 0xE0,0xE0,0xDB,0xDB 
+36                                                        
+EndModule
+Module = "Parole: ACMD 48 IN 2 OUT" 0xE0,0xE0,0x40,0xD7,0x40,0xD7
+37                                                         
+EndModule
+Module = "Parole: ACMD 96 IN 2 OUT" 0xE0,0xE0,0x40,0xEF,0x40,0xEF
+38                                                          
+EndModule
+Module = "Parole: ACMD 122 IN 2 OUT" 0xE0,0xE0,0x40,0xFC,0x40,0xFC 
+39                                                       
+EndModule
+
+
+
+Fail_Safe = 1
+Modul_Offset = 0
+Slave_Family = 11@MOBY
+;Fail_Safe_required = 0
+
+;********************************************************************
+;**       Slave related Key Words for DP extensions                **
+;********************************************************************
+DPV1_Slave = 1
+C1_Read_Write_supp = 1
+C2_Read_Write_supp = 1
+C1_Max_Data_Len = 240
+C2_Max_Data_Len = 240
+C1_Response_Timeout = 10
+C2_Response_Timeout = 10
+C1_Read_Write_required = 0
+C2_Read_Write_required = 0
+C2_Max_Count_Channels = 1
+Max_Initiate_PDU_Length = 64
+WD_Base_1ms_supp = 1
+;Publisher_supp = 0
+
+Ident_Maintenance_supp  = 1
+
+
+;******  Redundanz ************************
+PrmCmd_supp=1
+Prm_Block_Structure_supp = 1
+Redundancy = 1
+Slave_Redundancy_supp = 1
+;Max_Switch_Over_Time = 1
+Slave_Max_Switch_Over_Time = 1
+;OutputHoldTime = 1
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; FW_Update-Keywords  ( SIEMENS intern )
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Firmware_Download_supp=1
+Version_Firmware_Download
+Version_Name="Siemens_FWUPD_V1.0.0"   
+End_Version_Firmware_Download
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
